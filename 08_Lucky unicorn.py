@@ -91,4 +91,4 @@ while keep_going == "":
 # Prints final results
 print()
 print("You're going home with ${:.2f}\n".format(balance))
-print(":)")
+print(":D")
