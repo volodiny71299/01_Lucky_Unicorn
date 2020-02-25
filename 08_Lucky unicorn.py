@@ -37,8 +37,8 @@ DONKEY = 0      # donkey doesn't win anything
 # Introduction to the game
 print("Welcome to the Lucky Unicorn Game\n"
       "To play, enter an amount of money between $1 and $10 (whole dollars).\n"
-      "$1 Per round\n"
-      "Follow the instructions give\n"
+      "$1 cost entry Per round\n"
+      "Follow the instructions given\n"
       "Let me know if the program misbehaves\n"
       "Good luck!")
 
@@ -91,4 +91,3 @@ while keep_going == "":
 # Prints final results
 print()
 print("You're going home with ${:.2f}\n".format(balance))
-print(":D")
