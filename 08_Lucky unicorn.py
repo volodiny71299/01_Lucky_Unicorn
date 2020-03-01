@@ -20,11 +20,17 @@ def check(question, low, high):
             print(error)
 
 
-def token_statement(statement, char):
+def token_statement(fdbck, balance, char):
+    if len(fdbck) > len(balance):
+        use_length = len(fdbck)
+    else:
+        use_length = len(balance)
     print()
-    print(char*len(statement))
-    print(statement)
-    print(char*len(statement))
+    print(char * use_length)
+    print(fdbck)
+    print()
+    print(balance)
+    print(char * use_length)
     print()
 
 # Values of each variable
@@ -67,18 +73,23 @@ while keep_going == "":
     # Adjust balance based on the chosen token and gives feedback
     if token == "unicorn":
         balance += UNICORN
-        token_statement("* Congratulations! It's A ${:.2f} {} *".format(UNICORN, token), "*")
+        feedback = "* Congratulations! It's A ${:.2f} {} *".format(UNICORN, token)
+        decoration = "*"
 
     elif token == "donkey":
         balance -= COST
-        token_statement("- Sorry. It's a {}. You don't win anything this round -".format(token), "-")
+        feedback = "- Sorry. It's a {}. You don't win anything this round -".format(token)
+        decoration = "-"
 
     else:
         balance -= ZEB_HOR
-        token_statement("^ You got a {}. You only lose 50c ^".format(token), "^")
+        feedback = "^ You got a {}. You only lose 50c ^".format(token)
+        decoration = "^"
 
     print()
-    print("Rounds Played: {}    Balance: ${:.2f}".format(round_count, balance))
+    token_statement(feedback,
+    "Rounds Played: {}    Balance: ${:.2f}".format(round_count, balance),
+    decoration)
     print()
 
     # Continue or exit loop
